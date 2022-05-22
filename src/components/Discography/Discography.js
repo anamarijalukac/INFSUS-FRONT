@@ -15,7 +15,7 @@ const Discography = () => {
     let orchestra = location.state;
 
 
-    let albums = orchestra.discography.albums
+    let albums = orchestra.discography.albumList
 
 
     return (
