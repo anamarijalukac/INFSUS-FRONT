@@ -17,3 +17,15 @@ export const getOrchestraById = (orchestraID) => async (dispatch) =>{
         console.log(error)
     }
 }
+
+export const createOrchestra = (orchestra) => async (dispatch) => {
+    try {
+        console.log("ide novi orkestar from action")
+        console.log(orchestra)
+        const {data} = await api.createOrchestra(orchestra);
+        dispatch({type: 'CREATE', payload: data})
+    } catch (e) {
+        console.log(e);
+    }
+
+}

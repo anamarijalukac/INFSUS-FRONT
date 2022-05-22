@@ -6,13 +6,15 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 
 
-const Navbar = () => {
+const Navbar = ({currentId}) => {
     const classes = useStyles()
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const [anchorEl, setAnchorEl] = useState(null);
     const location = useLocation();
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    console.log(currentId)
 
 
     const onOpen = e => {
@@ -79,6 +81,15 @@ const Navbar = () => {
                                     onClick={onSelect}
                                 >
                                     ORCHESTRAS
+                                </MenuItem>
+                            </Link>
+                            <Link to={"/user/"+currentId}
+                                  className={classes.menuItem}>
+                                <MenuItem
+                                    key={2}
+                                    onClick={onSelect}
+                                >
+                                    PROFILE
                                 </MenuItem>
                             </Link>
 

@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import OrchestraLayout from "./components/OrchestraLayout/OrchestraLayout";
 import OrchestraDetails from "./components/OrchestraDetails/OrchestraDetails";
 import Discography from "./components/Discography/Discography";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 
 const theme = createTheme({
@@ -36,13 +37,13 @@ function App() {
     const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem('profile'));
 
- let currentId='123';
+    let currentId='123';
 
     return (
         <MuiThemeProvider theme={theme} >
             <BrowserRouter>
 
-                <Navbar/>
+                <Navbar currentId={currentId}/>
 
 
 
@@ -51,6 +52,7 @@ function App() {
                     <Route path="/orchestra" exact element={<OrchestraLayout />}/>
                     <Route path="/orchestra/:id"  element={<OrchestraDetails currentId={currentId}/>}/>
                     <Route path="/orchestra/:id/discography"  element={<Discography />}/>
+                    <Route path="/user/:id/"  element={<UserProfile />}/>
 
                 </Routes>
             </BrowserRouter>

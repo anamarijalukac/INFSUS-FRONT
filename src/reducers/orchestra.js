@@ -1,4 +1,4 @@
-const reducer = (movies = [], action) => {
+const reducer = (orchestra = [], action) => {
     switch (action.type) {
         case 'FETCH_ALL':
             return action.payload;
@@ -7,9 +7,15 @@ const reducer = (movies = [], action) => {
         case 'FETCH_ORCHESTRA':
             return action.payload;
 
+        case 'CREATE':
+            console.log("ide novi orkestar from reducer")
+            console.log(action.payload)
+
+            return [...orchestra, action.payload];
+
 
         default:
-            return movies;
+            return orchestra;
     }
 }
 
