@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
 
 
-import user from "./User"
+import user from "./user"
 import orchestra from "./orchestra"
 
 

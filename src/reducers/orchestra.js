@@ -13,6 +13,11 @@ const reducer = (orchestra = [], action) => {
 
             return [...orchestra, action.payload];
 
+        case 'DELETE':
+            return orchestra.filter((o)=>o._id!==action.payload);
+
+       
+
 
         default:
             return orchestra;

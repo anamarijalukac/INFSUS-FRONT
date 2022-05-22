@@ -9,7 +9,7 @@ const UserCardLayout = ({users}) => {
     const classes = useStyles();
     const {id} = useParams()
     const [wishlist, setWishlist] = useState([])
-    console.log(users)
+
 
 
     return (

@@ -3,6 +3,7 @@ import {Card, CardMedia, Grid, Typography} from "@material-ui/core";
 import useStyles from "./styles";
 import {useDispatch} from "react-redux";
 import {useParams} from "react-router-dom";
+import imguser from "../../../images/userimg.png"
 
 
 const UserCard = ({user}) => {
@@ -18,7 +19,7 @@ const UserCard = ({user}) => {
 
         <Card className={classes.card}>
 
-            <CardMedia className={classes.profile} image={user.image}> </CardMedia>
+            <CardMedia className={classes.profile} image={imguser}> </CardMedia>
 
             <Grid className={classes.mainContainer}>
                 <Typography className={classes.title}>{user.name}</Typography>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Container, Grid, Typography} from "@material-ui/core";
 import useStyles from "./styles";
 import Orchestra from "./Orchestra/Orchestra";
-import img from "../../images/tamburice-home.jpg"
+import img from "../../images/tamburice-home.jpg";
 import imguser from "../../images/userimg.png"
 import {useDispatch, useSelector} from "react-redux";
 import {getOrchestras} from "../../actions/orchestra";

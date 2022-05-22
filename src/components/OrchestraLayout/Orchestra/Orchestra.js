@@ -3,6 +3,7 @@ import useStyles from "./styles";
 import {Button, ButtonGroup, Card, CardHeader, CardMedia, Typography} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import img from "../../../images/tamburice-home.jpg";
 
 
 const Orchestra = ({orchestra}) => {
@@ -26,7 +27,7 @@ const Orchestra = ({orchestra}) => {
 
     return (
         <Card className={classes.card}>
-            <CardMedia className={classes.media} image={orchestra.image}/>
+            <CardMedia className={classes.media} image={img}/>
             <CardHeader className={classes.title} title={orchestra.name}/>
 
 

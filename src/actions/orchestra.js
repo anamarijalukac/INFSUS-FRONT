@@ -9,7 +9,7 @@ export const getOrchestras = () => async (dispatch) => {
     }
 }
 
-export const getOrchestraById = (orchestraID) => async (dispatch) =>{
+export const getOrchestraById = (orchestraID) => async (dispatch) => {
     try {
         const {data} = await api.fetchOrchestrasById(orchestraID)
         dispatch({type: 'FETCH_ORCHESTRA', payload: data})
@@ -27,4 +27,17 @@ export const createOrchestra = (orchestra) => async (dispatch) => {
         console.log(e);
     }
 
+}
+
+
+
+
+export const deleteOrchestra = (id) => async (dispatch) => {
+    try {
+
+        await api.deleteOrchestra(id)
+        dispatch({type: 'DELETE', payload: id})
+    } catch (e) {
+        console.log(e);
+    }
 }

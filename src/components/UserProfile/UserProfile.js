@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
 import {Button, Container, TextField, Typography} from "@material-ui/core";
 import useStyles from "./styles";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createOrchestra} from "../../actions/orchestra";
+import UserCard from "../UserCardsLayout/UserCard/UserCard";
 
-const UserProfile = ({user}) => {
+const UserProfile = () => {
+
+    //const user = useSelector((state) => state.user);
+
 
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -13,13 +17,14 @@ const UserProfile = ({user}) => {
 
     const createOrchestraBox = () => {
         setShow(prev => !prev)
-
-
     };
+
+
     let defaultValues = {
-        id:"1",
-        name: "",
-        founded_date: '',
+
+        name: "ime",
+        web_page:"page",
+        founded_date: '2011-07-23T19:09:13.000+00:00',
         members: [],
         leader:null,
 
@@ -30,13 +35,15 @@ const UserProfile = ({user}) => {
 
         setShow(prev => !prev)
         event.preventDefault();
-        dispatch(createOrchestra(formValues));
+        console.log(formValues);
+        dispatch(createOrchestra(defaultValues));
 
 
 
         defaultValues = {
-            id:"1",
+
             name: "",
+            web_page:"",
             founded_date: '',
             members: [],
             leader:null,
@@ -67,6 +74,9 @@ const UserProfile = ({user}) => {
             >
                 Profile
             </Typography>
+
+
+
 
 
             {!show &&
@@ -100,6 +110,11 @@ const UserProfile = ({user}) => {
                                value={formValues.founded_date} InputLabelProps={{
                         shrink: true,
                     }}/>
+
+                    <TextField id="web-input" name="web" label="web" type="text" value={formValues.web_page}
+                               onChange={handleInputChange}
+                    />
+
 
 
 

@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import {CardMedia, Container, Divider, Grid, Typography} from "@material-ui/core";
 import useStyles from "./styles";
 import Song from "./Song/Song"
+import albumcover from "../../../images/albumcover.jpg"
 
 
 const Album = ({album}) => {
@@ -17,7 +18,7 @@ const Album = ({album}) => {
     return (
 
         <Container style={{padding: 10}} className={classes.box}>
-            <CardMedia className={classes.media} image={album.image}/>
+            <CardMedia className={classes.media} image={albumcover}/>
 
             <Typography variant="h1" className={classes.heading} gutterBottom>
                 {album.name}

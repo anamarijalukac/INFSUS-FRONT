@@ -6,17 +6,13 @@ import useStyles from './styles';
 import UserCardLayout from "../UserCardsLayout/UserCardLayout";
 import EventCardsLayout from "../EventCardsLayout/EventCardsLayout";
 import {Add} from "@material-ui/icons";
+import {createOrchestra, deleteOrchestra} from "../../actions/orchestra";
 
 
 const OrchestraDetails = ({currentId}) => {
 
 
 
-
-
-    const [clicked, setClicked] = useState(false)
-    const [review, setReview] = useState("")
-    const [genres, setGenres] = useState("");
     const classes = useStyles()
     const {orchestraId} = useParams()
     const navigate = useNavigate()
@@ -31,16 +27,32 @@ const OrchestraDetails = ({currentId}) => {
 
     };
 
-    const sendRegistration=()=>{
+    const sendRegistration = () => {
         console.log("sad")
 
     }
 
-    const data={
-        "events":orchestra.events,
-        "currentId":currentId
+
+    const data = {
+        "events": orchestra.events,
+        "currentId": currentId
 
     }
+
+    const deleteOrchestraBtn = (event) => {
+
+        event.preventDefault();
+
+        dispatch(deleteOrchestra(orchestra.id));
+
+
+
+
+        navigate('/orchestra/')
+
+
+
+    };
 
 
     return (
@@ -51,7 +63,8 @@ const OrchestraDetails = ({currentId}) => {
 
                     <Grid container direction="column" justifyContent="center" alignItems="center">
                         <Typography variant="h3" component="h2">{orchestra.name}</Typography>
-                        <Typography gutterBottom variant="body1" component="p">Founded: {orchestra.founded_date}</Typography>
+                        <Typography gutterBottom variant="body1"
+                                    component="p">Founded: {orchestra.founded_date}</Typography>
                         <Typography variant="h6">Web page: {orchestra.web_page}</Typography>
                     </Grid>
 
@@ -73,8 +86,13 @@ const OrchestraDetails = ({currentId}) => {
             <div>
                 <UserCardLayout users={orchestra.members}/>
                 <EventCardsLayout data={data}/>
+                <Button variant="contained"  color="primary" onClick={deleteOrchestraBtn}>
+                    Delete orchestra
+                </Button>
 
             </div>
+
+
 
         </Paper>
     )
