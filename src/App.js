@@ -11,6 +11,7 @@ import Discography from "./components/Discography/Discography";
 import UserProfile from "./components/UserProfile/UserProfile";
 import {getOrchestras} from "./actions/orchestra";
 import {getUserById} from "./actions/user";
+import SignIn from "./components/SingIn/SignIn";
 
 
 const theme = createTheme({
@@ -66,6 +67,7 @@ function App() {
                     <Route path="/orchestra/:id"  element={<OrchestraDetails currentId={currentId}/>}/>
                     <Route path="/orchestra/:id/discography"  element={<Discography />}/>
                     <Route path="/user/:id/"  element={<UserProfile currentId={currentId} />}/>
+                    <Route path="/auth/"  element={<SignIn/>}/>
 
                 </Routes>
             </BrowserRouter>

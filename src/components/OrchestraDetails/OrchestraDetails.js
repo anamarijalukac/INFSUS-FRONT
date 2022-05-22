@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
-import {Button, Divider, Grid, Paper, Typography} from '@material-ui/core';
+import {Button, Container, Divider, Grid, Paper, TextField, Typography} from '@material-ui/core';
 import {useDispatch} from "react-redux";
 import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import useStyles from './styles';
 import UserCardLayout from "../UserCardsLayout/UserCardLayout";
 import EventCardsLayout from "../EventCardsLayout/EventCardsLayout";
 import {Add} from "@material-ui/icons";
-import {createOrchestra, deleteOrchestra} from "../../actions/orchestra";
+import { deleteOrchestra, updateOrchestra} from "../../actions/orchestra";
+
 
 
 const OrchestraDetails = ({currentId}) => {
-
-
 
     const classes = useStyles()
     const {orchestraId} = useParams()
@@ -20,6 +19,46 @@ const OrchestraDetails = ({currentId}) => {
 
     const location = useLocation();
     let orchestra = location.state;
+
+
+    const [show, setShow] = useState(false);
+    const createOrchestraBox = () => {
+        setShow(prev => !prev)
+    }
+    const [name, setName] = useState("")
+    const [webpage, setWebpage] = useState("")
+    const [date, setDate] = useState("")
+
+
+    const handleSubmit = (event) => {
+
+        setShow(prev => !prev)
+        event.preventDefault();
+
+        let defaultValues = {
+
+            name: name,
+            web_page: webpage,
+            founded_date: date,
+            members: orchestra.members,
+            leader:orchestra.leader,
+
+        };
+        console.log(defaultValues)
+        dispatch(updateOrchestra(orchestra.id,defaultValues));
+        setDate("")
+        setWebpage("")
+        setName("")
+
+
+    };
+
+
+
+
+
+
+
 
     const openDiscography = () => {
         //dispatch(getRecommended(movie.tmdbID))
@@ -46,10 +85,7 @@ const OrchestraDetails = ({currentId}) => {
         dispatch(deleteOrchestra(orchestra.id));
 
 
-
-
         navigate('/orchestra/')
-
 
 
     };
@@ -86,12 +122,68 @@ const OrchestraDetails = ({currentId}) => {
             <div>
                 <UserCardLayout users={orchestra.members}/>
                 <EventCardsLayout data={data}/>
-                <Button variant="contained"  color="primary" onClick={deleteOrchestraBtn}>
+                <Button variant="contained" color="primary" onClick={deleteOrchestraBtn}>
                     Delete orchestra
                 </Button>
 
-            </div>
+                {!show &&
+                <Button variant="contained" color="primary" onClick={createOrchestraBox}>
+                    Update orchestra
+                </Button>}
+                {show &&
+                <Container className={classes.form}>
 
+                    <Typography
+                        variant="h5"
+                        className={classes.sub}
+                        gutterBottom
+                    >
+                        Create new orchestra
+                    </Typography>
+
+
+                    <Container className={classes.form}>
+
+
+                        <TextField id="name-input" name="name" label="Name" type="text"
+                                   value={name}
+                                   onChange={(e) => {
+                                       setName(e.target.value);
+                                   }}
+                        />
+                        <TextField id="web" name="web" label="Web Page" type="text"
+                                   value={webpage}
+                                   onChange={(e) => {
+                                       setWebpage(e.target.value);
+                                   }}
+                        />
+
+
+                        <TextField id="date-input" name="date" label="Founded date" type="date"
+                                   value={date}
+                                   onChange={(e) => {
+                                       setDate(e.target.value);
+                                   }}
+
+                                   InputLabelProps={{
+                                       shrink: true,
+                                   }}/>
+
+
+                    </Container>
+
+                    <Button variant="contained" style={{top: '30px'}} color="primary" onClick={handleSubmit}>
+                        done
+                    </Button>
+
+
+                </Container>
+
+
+                }
+
+
+            </div>
 
 
         </Paper>

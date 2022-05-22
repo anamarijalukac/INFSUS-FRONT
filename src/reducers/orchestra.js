@@ -16,7 +16,9 @@ const reducer = (orchestra = [], action) => {
         case 'DELETE':
             return orchestra.filter((o)=>o._id!==action.payload);
 
-       
+        case 'UPDATE':
+
+            return orchestra.map((o) => o._id === action.payload._id ? action.payload : o)
 
 
         default:
