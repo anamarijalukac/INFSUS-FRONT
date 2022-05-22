@@ -1,6 +1,7 @@
 const reducer = (orchestra = [], action) => {
     switch (action.type) {
         case 'FETCH_ALL':
+
             return action.payload;
 
 
@@ -8,8 +9,7 @@ const reducer = (orchestra = [], action) => {
             return action.payload;
 
         case 'CREATE':
-            console.log("ide novi orkestar from reducer")
-            console.log(action.payload)
+
 
             return [...orchestra, action.payload];
 

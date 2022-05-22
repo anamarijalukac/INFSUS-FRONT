@@ -2,7 +2,7 @@ import * as api from '../api/index.js';
 
 export const getOrchestras = () => async (dispatch) => {
     try {
-        const {data} = await api.fetchOrchestras();
+        const {data} = await api.fetchOrchestras()
         dispatch({type: 'FETCH_ALL', payload: data});
     } catch (e) {
         console.log(e);
@@ -20,8 +20,7 @@ export const getOrchestraById = (orchestraID) => async (dispatch) =>{
 
 export const createOrchestra = (orchestra) => async (dispatch) => {
     try {
-        console.log("ide novi orkestar from action")
-        console.log(orchestra)
+
         const {data} = await api.createOrchestra(orchestra);
         dispatch({type: 'CREATE', payload: data})
     } catch (e) {

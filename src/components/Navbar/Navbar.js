@@ -14,7 +14,7 @@ const Navbar = ({currentId}) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    console.log(currentId)
+
 
 
     const onOpen = e => {

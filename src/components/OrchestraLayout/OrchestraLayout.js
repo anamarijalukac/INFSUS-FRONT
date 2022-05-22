@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Container, Grid, Typography} from "@material-ui/core";
 import useStyles from "./styles";
 import Orchestra from "./Orchestra/Orchestra";
 import img from "../../images/tamburice-home.jpg"
 import imguser from "../../images/userimg.png"
+import {useDispatch, useSelector} from "react-redux";
+import {getOrchestras} from "../../actions/orchestra";
 
 
 let Instrument=  {
@@ -126,15 +128,10 @@ let OrchestraDemo4 = {
 
 
 const OrchestraLayout = () => {
-    //const orchestras = useSelector((state) => state.orchestras);
-    let orchestras = []
-    orchestras.push(OrchestraDemo)
-    orchestras.push(OrchestraDemo2)
-    orchestras.push(OrchestraDemo3)
-    orchestras.push(OrchestraDemo4)
+
+    const orchestras = useSelector((state) => state.orchestra);
 
 
-    orchestras.map((orchestra) => (console.log(orchestra.name)))
 
     const classes = useStyles();
 
