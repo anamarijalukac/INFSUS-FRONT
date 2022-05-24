@@ -40,11 +40,12 @@ const OrchestraDetails = ({currentId}) => {
             name: name,
             web_page: webpage,
             founded_date: date,
-            members: orchestra.members,
-            leader:orchestra.leader,
+            members: null,
+            leader: null,
 
         };
         console.log(defaultValues)
+        console.log(orchestra.members)
         dispatch(updateOrchestra(orchestra.id,defaultValues));
         setDate("")
         setWebpage("")
@@ -138,7 +139,7 @@ const OrchestraDetails = ({currentId}) => {
                         className={classes.sub}
                         gutterBottom
                     >
-                        Create new orchestra
+                        Update orchestra details
                     </Typography>
 
 

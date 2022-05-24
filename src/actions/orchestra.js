@@ -45,7 +45,7 @@ export const deleteOrchestra = (id) => async (dispatch) => {
 export const updateOrchestra = (id,orchestra) => async (dispatch) => {
     try {
 
-        await api.deleteOrchestra(id,orchestra)
+        await api.updateOrchestra(id,orchestra)
         dispatch({type: 'UPDATE', payload: id})
     } catch (e) {
         console.log(e);

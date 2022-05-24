@@ -8,10 +8,7 @@ import imguser from "../../../images/userimg.png"
 
 const UserCard = ({user}) => {
     const classes = useStyles();
-    const [clicked, setClicked] = useState(false)
-    const [deleteClicked, setDeleteClicked] = useState(false)
-    const {id} = useParams()
-    const dispatch = useDispatch();
+
 
 
     return (

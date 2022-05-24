@@ -40,7 +40,7 @@ function App() {
     const dispatch = useDispatch();
 
 
-    let currentId='3';
+    let currentId='1';
 
     useEffect(() => {
         dispatch(getOrchestras());
@@ -50,7 +50,8 @@ function App() {
     }, [currentId, dispatch])
 
 
-
+    const user = useSelector((state) => state.user);
+    console.log(user)
 
 
     return (
@@ -66,7 +67,7 @@ function App() {
                     <Route path="/orchestra" exact element={<OrchestraLayout />}/>
                     <Route path="/orchestra/:id"  element={<OrchestraDetails currentId={currentId}/>}/>
                     <Route path="/orchestra/:id/discography"  element={<Discography />}/>
-                    <Route path="/user/:id/"  element={<UserProfile currentId={currentId} />}/>
+                    <Route path="/user/:id/"  element={<UserProfile user={user} />}/>
                     <Route path="/auth/"  element={<SignIn/>}/>
 
                 </Routes>

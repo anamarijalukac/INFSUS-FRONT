@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import {Button, Container, TextField, Typography} from "@material-ui/core";
 import useStyles from "./styles";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createOrchestra} from "../../actions/orchestra";
+import UserCard from "../UserCardsLayout/UserCard/UserCard";
 
-const UserProfile = () => {
+const UserProfile = ({user}) => {
 
-    //const user = useSelector((state) => state.user);
+
 
 
     const classes = useStyles();
@@ -58,6 +59,8 @@ const UserProfile = () => {
             >
                 Profile
             </Typography>
+
+            <UserCard user={user}/>
 
 
             {!show &&

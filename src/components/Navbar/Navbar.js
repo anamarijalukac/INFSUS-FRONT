@@ -3,16 +3,19 @@ import React, {Fragment, useEffect, useState} from 'react';
 import useStyles from './styles.js';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Navbar = ({currentId}) => {
     const classes = useStyles()
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const [user, setUser] = useState(null)
     const [anchorEl, setAnchorEl] = useState(null);
     const location = useLocation();
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    
+
 
 
 
@@ -43,8 +46,8 @@ const Navbar = ({currentId}) => {
     }
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('profile')))
-    }, [location])
+        setUser(user)
+    }, [location, user])
 
 
     return (
