@@ -26,14 +26,14 @@ const SignIn = ({ signinfunction }) => {
 
 
         }
-        if (formValues.email === "scossington4@engadget.com" && formValues.password === "dnS1Jw"){
+        if (formValues.email === "randomUser1" && formValues.password === "54321"){
             setShow(false)
-            signinfunction("5")
+            signinfunction("2")
             navigate(`/`)
         }
-        if (formValues.email === "cfrankes5@furl.net" && formValues.password === "uAxGs2n"){
+        if (formValues.email === "randomUser2" && formValues.password === "abcdef"){
             setShow(false)
-            signinfunction("6")
+            signinfunction("3")
             navigate(`/`)
         }
 

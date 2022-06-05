@@ -74,8 +74,9 @@ const OrchestraDetails = ({currentId}) => {
     const sendRegistration = (event) => {
         event.preventDefault();
 
-        axios.post(`http://localhost:8080//orchestra//${orchestra.id}//${currentId}`)
+        axios.post(`http://localhost:8080//orchestra//${orchestra.id}//sign-up//${currentId}`)
             .then(response => console.log(response));
+
 
 
 
