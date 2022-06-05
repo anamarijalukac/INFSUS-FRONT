@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import React, {Component, useEffect, useState} from 'react';
+import {BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 
 import {createTheme, MuiThemeProvider} from "@material-ui/core";
@@ -12,6 +12,7 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import {getOrchestras} from "./actions/orchestra";
 import {getUserById} from "./actions/user";
 import SignIn from "./components/SingIn/SignIn";
+
 
 
 const theme = createTheme({
@@ -34,13 +35,14 @@ const theme = createTheme({
 
 });
 
-function App() {
-    //set currentId
-    //const [currentId, setCurrentId] = useState(null);
+function App()  {
+
     const dispatch = useDispatch();
 
 
-    let currentId='1';
+    const [currentId, setCurrentId] = useState("1");
+
+
 
     useEffect(() => {
         dispatch(getOrchestras());
@@ -52,6 +54,8 @@ function App() {
 
     const user = useSelector((state) => state.user);
     console.log(user)
+
+
 
 
     return (
@@ -68,7 +72,8 @@ function App() {
                     <Route path="/orchestra/:id"  element={<OrchestraDetails currentId={currentId}/>}/>
                     <Route path="/orchestra/:id/discography"  element={<Discography />}/>
                     <Route path="/user/:id/"  element={<UserProfile user={user} />}/>
-                    <Route path="/auth/"  element={<SignIn/>}/>
+                    <Route path="/auth/"  element={<SignIn signinfunction={setCurrentId}/>}/>
+
 
                 </Routes>
             </BrowserRouter>

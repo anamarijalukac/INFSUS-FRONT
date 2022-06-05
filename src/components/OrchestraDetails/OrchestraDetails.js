@@ -7,6 +7,8 @@ import UserCardLayout from "../UserCardsLayout/UserCardLayout";
 import EventCardsLayout from "../EventCardsLayout/EventCardsLayout";
 import {Add} from "@material-ui/icons";
 import { deleteOrchestra, updateOrchestra} from "../../actions/orchestra";
+import axios from "axios";
+
 
 
 
@@ -19,6 +21,8 @@ const OrchestraDetails = ({currentId}) => {
 
     const location = useLocation();
     let orchestra = location.state;
+
+
 
 
     const [show, setShow] = useState(false);
@@ -67,8 +71,13 @@ const OrchestraDetails = ({currentId}) => {
 
     };
 
-    const sendRegistration = () => {
-        console.log("sad")
+    const sendRegistration = (event) => {
+        event.preventDefault();
+
+        axios.post(`http://localhost:8080//orchestra//${orchestra.id}//${currentId}`)
+            .then(response => console.log(response));
+
+
 
     }
 

@@ -17,6 +17,7 @@ const UserProfile = ({user}) => {
 
     const createOrchestraBox = () => {
         setShow(prev => !prev)
+        console.log(user)
     };
 
     const [name, setName] = useState("")
@@ -60,7 +61,8 @@ const UserProfile = ({user}) => {
                 Profile
             </Typography>
 
-            <UserCard user={user}/>
+
+
 
 
             {!show &&

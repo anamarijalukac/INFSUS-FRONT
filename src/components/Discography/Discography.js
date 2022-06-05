@@ -8,8 +8,8 @@ import Album from "./Album/Album"
 const Discography = () => {
 
     const classes = useStyles();
-    const {id} = useParams()
-    const [wishlist, setWishlist] = useState([])
+
+
 
     const location = useLocation();
     let orchestra = location.state;

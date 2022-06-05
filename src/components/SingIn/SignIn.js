@@ -4,7 +4,7 @@ import useStyles from "./styles";
 import {useNavigate} from "react-router-dom";
 
 
-const SignIn = () => {
+const SignIn = ({ signinfunction }) => {
 
     //const user = useSelector((state) => state.user);
     const [show, setShow] = useState(false);
@@ -21,9 +21,23 @@ const SignIn = () => {
         console.log(formValues);
         if (formValues.email === "user@gmail.com" && formValues.password === "12345") {
             setShow(false)
+            signinfunction("1")
             navigate(`/`)
 
-        } else {
+
+        }
+        if (formValues.email === "scossington4@engadget.com" && formValues.password === "dnS1Jw"){
+            setShow(false)
+            signinfunction("5")
+            navigate(`/`)
+        }
+        if (formValues.email === "cfrankes5@furl.net" && formValues.password === "uAxGs2n"){
+            setShow(false)
+            signinfunction("6")
+            navigate(`/`)
+        }
+
+        else {
             setShow(true)
             defaultValues = {
                 email: "",
