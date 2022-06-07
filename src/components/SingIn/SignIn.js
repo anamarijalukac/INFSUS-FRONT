@@ -26,12 +26,12 @@ const SignIn = ({ signinfunction }) => {
 
 
         }
-        if (formValues.email === "randomUser1" && formValues.password === "54321"){
+        if (formValues.email === "vgethings1@ted.com" && formValues.password === "54321"){
             setShow(false)
             signinfunction("2")
             navigate(`/`)
         }
-        if (formValues.email === "randomUser2" && formValues.password === "abcdef"){
+        if (formValues.email === "pklampt2@fema.gov" && formValues.password === "abcdef"){
             setShow(false)
             signinfunction("3")
             navigate(`/`)
